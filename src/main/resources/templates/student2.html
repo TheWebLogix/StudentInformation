@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+  .table{
+  border-collapse:collapse;
+  margin: 50px;
+  font-size: 1.2em;
+  }
+</style>
+<a th:href="@{/student/new}">Add Students</a>
+<table class="table" >
+<thead>
+<tr>
+  <th>Id</th>
+  <th>First Name</th>
+  <th>Last Name</th>
+  <th>E-mail</th>
+  <th>Password</th>
+  <th>Action</th>
+
+</tr>
+</thead>
+<th:block th:each="student : ${listStudent}">
+<tr>
+<td>[[${student.id}]]</td>
+<td>[[${student.firstName}]]</td>
+<td>[[${student.lastName}]]</td>
+<td>[[${student.email}]]</td>
+<td>[[${student.password}]]</td>
+<td><a th:href="@{'student/edit/'+${student.id}}">Edit</a></td>
+<td><a th:href="@{'student/delete/'+${student.id}}">Delete</a></td>
+
+
+
+</tr>
+</th:block>
+</table>
+
+
+
+</body>
+</html>

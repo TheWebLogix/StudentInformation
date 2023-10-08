@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+</head>
+<body>
+<style>
+ * {
+    margin-left: 13%;
+    background-color: #c4d3f6;
+    margin-top: 11%;
+}
+a.button {
+
+    text-decoration: none;
+    border: 2px solid #667391;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+}
+a.button:hover {
+    background-color: #38445e;
+    color: white;
+}
+
+
+</style>
+<!--<div class="link">-->
+    <a class="button" th:href="@{/student}">Show Students</a>
+    <a class="button"  th:href="@{/student/new}">Add Students</a>
+<!--</div>-->
+<table>
+<th:block>
+    <tr th:each="student : ${student}" th:field="${student}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.firstName}"></td>
+        <td th:text="${student.lastName}"></td>
+        <td th:text="${student.department}"></td>
+        <td th:text="${student.email}"></td>
+    </tr>
+</th:block>
+</table>
+</body>
+</html>
